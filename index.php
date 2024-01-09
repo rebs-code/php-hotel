@@ -52,31 +52,35 @@
     ];
 
     ?>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Hotel Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Parking</th>
-                <th scope="col">Vote</th>
-                <th scope="col">Distance from Center</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            //initialize row variable to 1
-            $row = 1;
-            foreach ($hotels as $hotel) {
-                //change parking value from boolean to yes or no string
-                if ($hotel['parking']) {
-                    $parking = 'Yes';
-                } else {
-                    $parking = 'No';
-                }
-                //print a table tr for each hotel
-                echo "<tr>
+    <header class="container-fluid text-center mb-4 p-2">
+        <h1>PHP Hotels</h1>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <table class="table w-75 mx-auto border">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hotel Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Parking</th>
+                        <th scope="col">Vote</th>
+                        <th scope="col">Distance from Center</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    //initialize row variable to 1
+                    $row = 1;
+                    foreach ($hotels as $hotel) {
+                        //change parking value from boolean to yes or no string
+                        if ($hotel['parking']) {
+                            $parking = 'Yes';
+                        } else {
+                            $parking = 'No';
+                        }
+                        //print a table tr for each hotel
+                        echo "<tr>
                     <th scope='row'>" . $row . "</th>
                     <td>" . $hotel['name'] . "</td>
                     <td>" . $hotel['description'] . "</td>
@@ -84,17 +88,19 @@
                     <td>" . $hotel['vote'] . "</td>
                     <td>" . $hotel['distance_to_center'] . ' km' . "</td>
                 </tr>";
-                //increment row by 1 with each cycle
-                $row++;
-            }
+                        //increment row by 1 with each cycle
+                        $row++;
+                    }
 
-            foreach ($hotel as $hotel_info) {
-                // echo $hotel_info;
-            }
-            ?>
+                    foreach ($hotel as $hotel_info) {
+                        // echo $hotel_info;
+                    }
+                    ?>
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
