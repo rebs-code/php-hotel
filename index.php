@@ -117,10 +117,6 @@
                             $row++;
                         }
                     }
-
-                    foreach ($hotel as $hotel_info) {
-                        // echo $hotel_info;
-                    }
                     ?>
 
                 </tbody>
