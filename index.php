@@ -60,12 +60,12 @@
             <!-- Form -->
             <form action="index.php" method="get" class="d-flex justify-content-center mb-4">
                 <select class="form-select form-select-sm w-25 me-2" aria-label="Small select example" name="parking">
-                    <option selected>Parking</option>
-                    <option value="1">Yes</option>
-                    <option value="2">No</option>
+                    <option selected value="0">Parking</option>
+                    <option value='Yes'>Yes</option>
+                    <option value='No'>No</option>
                 </select>
                 <select class="form-select form-select-sm w-25" aria-label="Small select example" name="minVote">
-                    <option selected>Min Vote</option>
+                    <option selected value="0">Min Vote</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -100,7 +100,8 @@
                         } else {
                             $parking = 'No';
                         }
-                        if ($hotel['vote'] >= $min_vote) {
+                        // prints only the hotels with vote >= minVote & parking yes/no
+                        if ($hotel['vote'] >= $min_vote && $parking == $parking_value) {
                             //print a table tr for each hotel
                             echo "<tr>
                         <th scope='row'>" . $row . "</th>
