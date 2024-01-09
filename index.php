@@ -79,7 +79,7 @@
                 //print a table tr for each hotel
                 echo "<tr>
                     <th scope='row'>" . $row . "</th>
-                    <td> <?php echo $hotel ?></td>
+                    <td>" . $hotel['name'] . "</td>
                     <td>Otto</td>
                     <td>@mdo</td>
                 </tr>";
