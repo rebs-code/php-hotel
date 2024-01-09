@@ -69,12 +69,17 @@
             //initialize row variable to 1
             $row = 1;
             foreach ($hotels as $hotel) {
+                if ($hotel['parking']) {
+                    $parking = 'Yes';
+                } else {
+                    $parking = 'No';
+                }
                 //print a table tr for each hotel
                 echo "<tr>
                     <th scope='row'>" . $row . "</th>
                     <td>" . $hotel['name'] . "</td>
                     <td>" . $hotel['description'] . "</td>
-                    <td>" . $hotel['parking'] . "</td>
+                    <td>" .  $parking . "</td>
                     <td>" . $hotel['vote'] . "</td>
                     <td>" . $hotel['distance_to_center'] . "</td>
                 </tr>";
