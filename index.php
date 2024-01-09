@@ -57,6 +57,25 @@
     </header>
     <main>
         <div class="container-fluid">
+
+            <form action="index.php" class="d-flex justify-content-center mb-4">
+                <select class="form-select form-select-sm w-25 me-2" aria-label="Small select example">
+                    <option selected>Parking</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+                <select class="form-select form-select-sm w-25" aria-label="Small select example">
+                    <option selected>Min Vote</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit" class="btn btn-primary ms-2">Search</button>
+            </form>
+
+
             <table class="table w-75 mx-auto border">
                 <thead>
                     <tr>
