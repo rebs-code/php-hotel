@@ -50,12 +50,50 @@
             'distance_to_center' => 50
         ],
     ];
-    foreach ($hotels as $hotel_info) {
-        foreach ($hotel_info as $hotel) {
-            echo $hotel;
-        }
-    }
+
     ?>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Parking</th>
+                <th scope="col">Vote</th>
+                <th scope="col">Distance from Center</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <th scope="row">1</th>
+                <td> <?php echo $hotel ?></td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr> -->
+
+            <?php
+            //initialize row variable to 1
+            $row = 1;
+            foreach ($hotels as $hotel) {
+                //print a table tr for each hotel
+                echo "<tr>
+                    <th scope='row'>" . $row . "</th>
+                    <td> <?php echo $hotel ?></td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>";
+                //increment row by 1 with each cycle
+                $row++;
+            }
+
+            foreach ($hotel as $hotel_info) {
+                echo $hotel_info;
+            }
+            ?>
+
+        </tbody>
+    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
