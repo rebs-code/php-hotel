@@ -61,8 +61,8 @@
             <form action="index.php" method="get" class="d-flex justify-content-center mb-4">
                 <select class="form-select form-select-sm w-25 me-2" aria-label="Small select example" name="parking">
                     <option selected value="0">Parking</option>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
+                    <option value='1'>Yes</option>
+                    <option value='2'>No</option>
                 </select>
                 <select class="form-select form-select-sm w-25" aria-label="Small select example" name="minVote">
                     <option selected value="0">Min Vote</option>
@@ -94,14 +94,16 @@
                     //initialize row variable to 1
                     $row = 1;
                     foreach ($hotels as $hotel) {
-                        //change parking value from boolean to yes or no string
+                        //change parking value from boolean to yes or no string top print on screen
                         if ($hotel['parking']) {
                             $parking = 'Yes';
+                            $parking_select_value = '1';
                         } else {
                             $parking = 'No';
+                            $parking_select_value = '2';
                         }
                         // prints only the hotels with vote >= minVote & parking yes/no
-                        if ($hotel['vote'] >= $min_vote && $parking == $parking_value) {
+                        if ($hotel['vote'] >= $min_vote && ($parking_select_value == $parking_value || $parking_value == '0')) {
                             //print a table tr for each hotel
                             echo "<tr>
                         <th scope='row'>" . $row . "</th>
