@@ -57,14 +57,14 @@
     </header>
     <main>
         <div class="container-fluid">
-
-            <form action="index.php" class="d-flex justify-content-center mb-4">
-                <select class="form-select form-select-sm w-25 me-2" aria-label="Small select example">
+            <!-- Form -->
+            <form action="index.php" method="get" class="d-flex justify-content-center mb-4">
+                <select class="form-select form-select-sm w-25 me-2" aria-label="Small select example" name="parking">
                     <option selected>Parking</option>
                     <option value="1">Yes</option>
                     <option value="2">No</option>
                 </select>
-                <select class="form-select form-select-sm w-25" aria-label="Small select example">
+                <select class="form-select form-select-sm w-25" aria-label="Small select example" name="minVote">
                     <option selected>Min Vote</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -74,8 +74,7 @@
                 </select>
                 <button type="submit" class="btn btn-primary ms-2">Search</button>
             </form>
-
-
+            <!-- table -->
             <table class="table w-75 mx-auto border">
                 <thead>
                     <tr>
@@ -89,6 +88,9 @@
                 </thead>
                 <tbody>
                     <?php
+                    //get values from select
+                    $parking_value = $_GET['parking'] ?? '0';
+                    $min_vote = $_GET['minVote'] ?? '0';
                     //initialize row variable to 1
                     $row = 1;
                     foreach ($hotels as $hotel) {
@@ -98,17 +100,19 @@
                         } else {
                             $parking = 'No';
                         }
-                        //print a table tr for each hotel
-                        echo "<tr>
-                    <th scope='row'>" . $row . "</th>
-                    <td>" . $hotel['name'] . "</td>
-                    <td>" . $hotel['description'] . "</td>
-                    <td>" .  $parking . "</td>
-                    <td>" . $hotel['vote'] . "</td>
-                    <td>" . $hotel['distance_to_center'] . ' km' . "</td>
-                </tr>";
-                        //increment row by 1 with each cycle
-                        $row++;
+                        if ($hotel['vote'] >= $min_vote) {
+                            //print a table tr for each hotel
+                            echo "<tr>
+                        <th scope='row'>" . $row . "</th>
+                        <td>" . $hotel['name'] . "</td>
+                        <td>" . $hotel['description'] . "</td>
+                        <td>" .  $parking . "</td>
+                        <td>" . $hotel['vote'] . "</td>
+                        <td>" . $hotel['distance_to_center'] . ' km' . "</td>
+                        </tr>";
+                            //increment row by 1 with each cycle
+                            $row++;
+                        }
                     }
 
                     foreach ($hotel as $hotel_info) {
