@@ -65,13 +65,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr>
-                <th scope="row">1</th>
-                <td> <?php echo $hotel ?></td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr> -->
-
             <?php
             //initialize row variable to 1
             $row = 1;
