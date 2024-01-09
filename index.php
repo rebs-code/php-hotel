@@ -69,6 +69,7 @@
             //initialize row variable to 1
             $row = 1;
             foreach ($hotels as $hotel) {
+                //change parking value from boolean to yes or no string
                 if ($hotel['parking']) {
                     $parking = 'Yes';
                 } else {
@@ -81,7 +82,7 @@
                     <td>" . $hotel['description'] . "</td>
                     <td>" .  $parking . "</td>
                     <td>" . $hotel['vote'] . "</td>
-                    <td>" . $hotel['distance_to_center'] . "</td>
+                    <td>" . $hotel['distance_to_center'] . ' km' . "</td>
                 </tr>";
                 //increment row by 1 with each cycle
                 $row++;
