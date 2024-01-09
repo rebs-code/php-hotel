@@ -80,8 +80,10 @@
                 echo "<tr>
                     <th scope='row'>" . $row . "</th>
                     <td>" . $hotel['name'] . "</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>" . $hotel['description'] . "</td>
+                    <td>" . $hotel['parking'] . "</td>
+                    <td>" . $hotel['vote'] . "</td>
+                    <td>" . $hotel['distance_to_center'] . "</td>
                 </tr>";
                 //increment row by 1 with each cycle
                 $row++;
